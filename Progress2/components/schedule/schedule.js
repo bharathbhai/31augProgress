@@ -19,24 +19,24 @@ app.openDatabase = function () {
     }
 };
 app.update = function (table_name) {
-    alert("in update");
+   // alert("in update");
     var d = new Date();
     var h = d.getHours();
     if (!this.checkSimulator()) {
         if (this.checkOpenedDatabase()) {
-            alert("f");
+           // alert("f");
             db.transaction(function (tx) {
                 tx.executeSql('UPDATE' + table_name + 'SET log_time=' + h + 'WHERE email=' + email + ';',
                     function (tx, res) {
-                        alert(JSON.stringify(res));
+                      //  alert(JSON.stringify(res));
                     },
                     function (tx, res) {
-                        alert(JSON.stringify(res));
+                      //  alert(JSON.stringify(res));
                         //alert('error: ' + res.message);
                     }
                 );
             });
-            alert("ff");
+          //  alert("ff");
         }
     }
 };
@@ -484,6 +484,13 @@ function dis() {
         var text = "Time: "+round[1]+"-"+round[2];
       //  alert(text);
         var textnode = document.createTextNode(text);
+        
+ 		  var text_date = "Date: "+ interview_date;
+        var textnode_date = document.createTextNode(text_date);
+         var para_date = document.createElement("p");
+        para_date.setAttribute("class", "by_para");
+         para_date.appendChild(textnode_date);       
+        
         //textNode.setAttribute("class", "textItem");
        // node.appendChild(textnode);  i commented
        // alert("appended");
@@ -521,6 +528,7 @@ function dis() {
         var textnode2 = document.createTextNode(text2);
         var para = document.createElement("p");
         para.setAttribute("class", "by_para");
+        name.appendChild(para_date);
         name.appendChild(textnode);
         para.appendChild(textnode2);
         name.appendChild(para);
@@ -578,29 +586,30 @@ var my = setInterval('dis()', 1000);
 
 function show(id) {
     var x = 'div' + id;
-    //alert("emp.length");
     for (i in app.employee) {
         if (x == 'div' + i) {
-            //alert(x + "   " + i);
+
 
             if (document.getElementById('div' + i).style.display == 'block') {
+                //alert("came in if")
                 document.getElementById("Arrow" + id).src = 'images/arrow-downAsset 2@1x.png';
-                var arrow = document.getElementById('arrow' + i);
-                arrow.setAttribute('class', 'arrow');
+
+
                 document.getElementById('div' + i).style.display = 'none';
+
+
             } else {
+
                 document.getElementById("Arrow" + id).src = 'images/arrow-upAsset 1@1x.png';
+
                 document.getElementById('div' + i).style.display = 'block';
-                var arrow = document.getElementById('arrow' + i);
-                arrow.setAttribute('class', 'arrow2');
+
             }
         } else {
-            //alert(x + "   " + i);
-              document.getElementById("Arrow" + id).src = 'images/arrow-downAsset 2@1x.png'
+
+            document.getElementById("Arrow" + i).src = 'images/arrow-downAsset 2@1x.png'
             document.getElementById('div' + i).style.display = 'none';
-            var arrow = document.getElementById('arrow' + i);
-            arrow.setAttribute('class', 'arrow');
-            
+
         }
     }
 }

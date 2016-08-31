@@ -209,9 +209,9 @@ function pantree() {
 }
 
 function tp1() {
-    alert("in func");
+   // alert("in func");
     window.open("components/progressPremises/progressPremises.html");
-    alert("fsdmnxv");
+   // alert("fsdmnxv");
 }
 
 function tp2() {

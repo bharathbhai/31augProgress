@@ -1,9 +1,10 @@
 'use strict';
 var counter = 0;
 var link;
+setInterval(function(){  app.startScanForBeacons(); }, 3000);
+
 app.startScanForBeacons = function () {
-    alert('startScanForBeacons');
-    //startVuforia();
+    //alert('startScanForBeacons');
     myfun();
     window.locationManager = cordova.plugins.locationManager;
     var delegate = new cordova.plugins.locationManager.Delegate()
@@ -108,7 +109,7 @@ app.didRangeBeaconsInRegion = function (pluginResult) {
                     if(flag_img[r]==0){
                         vibrate();
                     flag_img[r] = 1;
-                    alert("please go to progress premises ");
+                 //   alert("please go to progress premises ");
                     img_counter = setInterval('tick()', 1000);
                      //   alert("dcjhbf");
                     }
